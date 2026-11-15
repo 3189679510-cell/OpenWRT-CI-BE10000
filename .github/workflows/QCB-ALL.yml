@@ -6,7 +6,11 @@ name: QCB-ALL
 
 #CI计划
 on:
-  #自动编译已关闭（仅保留下方手动触发 workflow_dispatch）
+  #自动编译：当Auto-Clean运行完成后
+  workflow_run:
+    workflows: ["Auto-Clean"]
+    types:
+      - completed
   #手动编译
   workflow_dispatch:
     inputs:
@@ -31,7 +35,6 @@ jobs:
       fail-fast: false
       #max-parallel: 3
       matrix:
-        # 定制：只编译 IPQ95XX（原为 [IPQ53XX, IPQ95XX]）
         CONFIG: [IPQ95XX]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [owrt]

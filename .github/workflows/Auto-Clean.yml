@@ -4,7 +4,9 @@
 name: Auto-Clean
 
 on:
-  #定时清理已关闭（仅保留下方手动触发 workflow_dispatch）
+  #自动清理已禁用：避免每天删除刚编译好的固件
+  #schedule:
+  #  - cron: 21 21 * * *
   #手动清理
   workflow_dispatch:
 
