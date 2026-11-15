@@ -1,0 +1,7 @@
+# 追加插件 —— 由 Scripts/Settings.sh 追加到 ./.config，make defconfig 时生效
+# 注意：不写 CONFIG_PACKAGE_adguardhome=y —— UPDATE_PACKAGE 会清除 feeds 里的官方
+# adguardhome 包目录，该行会静默失效；二进制由 LuCI 应用首次运行时自行下载。
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_lucky=y
+CONFIG_PACKAGE_luci-app-lucky=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
