@@ -1,0 +1,17 @@
+# 0. 刷写前备份当前 mtd2 和 mtd18（当前状态快照）
+dd if=/dev/mtd2  of=/tmp/mtd2_backup_before_flash.bin
+dd if=/dev/mtd18 of=/tmp/mtd18_backup_before_flash.bin
+
+# 记录校验值，便于确认备份完整
+md5sum /tmp/mtd2_backup_before_flash.bin /tmp/mtd18_backup_before_flash.bin
+ls -l /tmp/mtd2_backup_before_flash.bin /tmp/mtd18_backup_before_flash.bin
+
+# 1. 刷入分区表
+mtd write /tmp/mtd2_0MIBIB.bin /dev/mtd2
+
+# 2. 刷入 U-Boot 本体
+mtd write /tmp/openwrt-ipq9574_xiaomi_be10000-u-boot.mbn /dev/mtd18
+
+# 3. 校验写入是否成功
+mtd verify /tmp/mtd2_0MIBIB.bin /dev/mtd2
+mtd verify /tmp/openwrt-ipq9574_xiaomi_be10000-u-boot.mbn /dev/mtd18
