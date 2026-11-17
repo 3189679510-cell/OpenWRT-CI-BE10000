@@ -1,3 +1,19 @@
+# 小米万兆 BE10000 固件快速入口
+
+**固件版本**（每次编译同时产出，选对应 Release 下载）：
+
+| 版本 | 配置 / Release 前缀 | 说明 |
+| --- | --- | --- |
+| 定制插件版 | `IPQ95XX-` | 含 openclash / adguardhome / lucky 等插件，约 87MB |
+| 官方标准版 | `IPQ95XX-STD-` | 无第三方插件，约 64MB；首次刷机/验证 UBI 引导推荐此版 |
+
+**U-Boot 下载（本包更新很少，需要时从这里直达）**：
+
+> 新版 U-Boot Release（IPQ9574 / 支持 `factory.ubi`，长期固定链接）：
+> https://github.com/kyxing107/OpenWRT-CI-BE10000/releases/tag/uboot-BE10000-20261103
+>
+> `mibib.bin`（分区表→mtd2）· `uboot.mbn`（U-Boot→mtd18）· 刷入教程见仓库 `docs/` 目录。
+
 # 高质量<免费>交流群
 
 [IPQ技术讨论群](https://qm.qq.com/q/v7nMhzB4oU)
@@ -25,6 +41,14 @@ https://github.com/immortalwrt/immortalwrt.git
 https://github.com/VIKINGYFY/immortalwrt.git
 
 # U-BOOT
+
+## 小米万兆 BE10000 新版 U-Boot（本仓库专用，直达）
+
+https://github.com/kyxing107/OpenWRT-CI-BE10000/releases/tag/uboot-BE10000-20261103
+
+（支持 factory.ubi；mibib.bin→mtd2，uboot.mbn→mtd18；刷入教程见 docs/）
+
+## 其他平台 U-Boot 开源项目
 
 高通版-沉心：
 

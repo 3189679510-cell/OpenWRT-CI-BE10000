@@ -137,6 +137,9 @@ UPDATE_VERSION() {
 #UPDATE_VERSION "sing-box"
 
 #引入私有扩展脚本
-if [ -f "$GITHUB_WORKSPACE/Scripts/PRIVATE.sh" ]; then
+#官方标准版(配置名含 -STD)跳过私有插件源码，不拉取 lucky/adguardhome
+if [[ "${WRT_CONFIG^^}" == *-STD* ]]; then
+	echo "Standard build ($WRT_CONFIG): skip PRIVATE.sh"
+elif [ -f "$GITHUB_WORKSPACE/Scripts/PRIVATE.sh" ]; then
 	source "$GITHUB_WORKSPACE/Scripts/PRIVATE.sh"
 fi

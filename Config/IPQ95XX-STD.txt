@@ -1,0 +1,6 @@
+#设备平台
+CONFIG_TARGET_qualcommbe=y
+CONFIG_TARGET_qualcommbe_ipq95xx=y
+#设备列表：仅小米万兆路由器 零售版 RC01 (IPQ9570 / xiaomi_be10000)
+#官方标准版：不含 openclash/adguardhome/lucky 等私有插件，约 64MB（适合 UBI 引导验证/日常纯净使用）
+CONFIG_TARGET_DEVICE_qualcommbe_ipq95xx_DEVICE_xiaomi_be10000=y

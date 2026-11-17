@@ -32,7 +32,10 @@ echo "CONFIG_PACKAGE_luci-app-$WRT_THEME=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-app-$WRT_THEME-config=y" >> ./.config
 
 #引入私有扩展配置
-if [ -f "$GITHUB_WORKSPACE/Config/PRIVATE.txt" ]; then
+#官方标准版(配置名含 STD)跳过私有插件，保持 upstream 官方组件，体积约 64MB
+if [[ "${WRT_CONFIG^^}" == *-STD* ]]; then
+	echo "Standard build ($WRT_CONFIG): skip PRIVATE.txt"
+elif [ -f "$GITHUB_WORKSPACE/Config/PRIVATE.txt" ]; then
 	echo "Applying private configurations from PRIVATE.txt..."
 	cat $GITHUB_WORKSPACE/Config/PRIVATE.txt >> ./.config
 fi
