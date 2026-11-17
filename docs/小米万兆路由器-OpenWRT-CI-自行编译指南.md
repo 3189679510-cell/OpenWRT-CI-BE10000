@@ -716,8 +716,22 @@ SONiC fullcone 入站方向修正，以及一批 PPE QoS/CAKE/EDMA 硬件加速�
 
 标准版约 64 MB，正好匹配原厂 rootfs 槽，配合新版 U-Boot 首次刷机/验证引导更稳；插件版 87.2 MB 超原厂槽，适合已确认 UBI 布局可引导后用 sysupgrade 在线升级。
 
-### 验证
+### 验证结果（TEST=true，run `44124771348`，两 job 均 success）
+
+| 配置项 | 插件版 `IPQ95XX` | 标准版 `IPQ95XX-STD` |
+| --- | --- | --- |
+| `luci-app-openclash` | =y | 无 |
+| `lucky` / `luci-app-lucky` | =y | 无 |
+| `luci-app-adguardhome` | =y | 无 |
+| 设备 `xiaomi_be10000` | =y | =y |
+
+确认插件版含全部私有插件、标准版纯净、两版设备正确。
+
+### 正式编译
+
+`TEST=false` 已触发，run `44126815839`（两个 job 并行编译真固件），完成后会产出两个独立 Release：
+`IPQ95XX-VIKINGYFY-owrt-<时间>`（插件版，约 87.2 MB）与
+`IPQ95XX-STD-VIKINGYFY-owrt-<时间>`（标准版，约 64 MB）。
 
 - commit `fccbc84` 已推送到 main。
-- 已用 `TEST=true` 触发验证（run `44124771348`），检查两版 `.config` 是否符合预期（结果见对话记录）。
 - U-Boot 直达：https://github.com/kyxing107/OpenWRT-CI-BE10000/releases/tag/uboot-BE10000-20261103
