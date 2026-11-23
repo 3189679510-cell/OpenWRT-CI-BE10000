@@ -209,6 +209,15 @@ jobs:
 
           make download -j$(nproc)
 
+      - name: Upload packages
+        if: ${{ !inputs.WRT_TEST }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages-${{ matrix.CONFIG }}
+          path: |
+            wrt/bin/packages/**/*.apk
+            wrt/bin/targets/**/packages/**/*.apk
+
       - name: Compile Firmware
         if: ${{ !inputs.WRT_TEST }}
         run: |
