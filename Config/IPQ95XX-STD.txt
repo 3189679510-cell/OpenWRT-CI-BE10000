@@ -2,30 +2,27 @@
 CONFIG_TARGET_qualcommbe=y
 CONFIG_TARGET_qualcommbe_ipq95xx=y
 #设备列表：仅小米万兆路由器 零售版 RC01 (IPQ9570 / xiaomi_be10000)
-#标准版 + Docker 定制
+#标准版 + Dockerman 界面（引擎用静态二进制，不进镜像）
 CONFIG_TARGET_DEVICE_qualcommbe_ipq95xx_DEVICE_xiaomi_be10000=y
 
-# ===== Docker / Dockerman =====
+# ===== Dockerman 界面（不含 60MB 引擎）=====
 CONFIG_PACKAGE_luci-app-dockerman=y
-CONFIG_PACKAGE_dockerd=y
-CONFIG_PACKAGE_docker=y
-CONFIG_PACKAGE_containerd=y
-CONFIG_PACKAGE_runc=y
 CONFIG_PACKAGE_luci-lib-docker=y
 CONFIG_PACKAGE_kmod-ipt-nat=y
 CONFIG_PACKAGE_kmod-ipt-physdev=y
 CONFIG_PACKAGE_kmod-nf-ipvs=y
 CONFIG_PACKAGE_kmod-br-netfilter=y
+CONFIG_PACKAGE_kmod-veth=y
 CONFIG_PACKAGE_kmod-fs-ext4=y
 CONFIG_PACKAGE_kmod-fs-ntfs3=y
+CONFIG_PACKAGE_kmod-nf-nat=y
+CONFIG_PACKAGE_kmod-nf-conntrack=y
 
 # ===== 工具 =====
 CONFIG_PACKAGE_ttyd=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-nlbwmon=y
 CONFIG_PACKAGE_luci-app-ddns=y
-CONFIG_PACKAGE_luci-app-aria2=y
-CONFIG_PACKAGE_aria2=y
 CONFIG_PACKAGE_luci-app-hd-idle=y
 CONFIG_PACKAGE_nano=y
 
