@@ -2,5 +2,37 @@
 CONFIG_TARGET_qualcommbe=y
 CONFIG_TARGET_qualcommbe_ipq95xx=y
 #设备列表：仅小米万兆路由器 零售版 RC01 (IPQ9570 / xiaomi_be10000)
-#官方标准版：不含 openclash/adguardhome/lucky 等私有插件，约 64MB（适合 UBI 引导验证/日常纯净使用）
+#标准版 + Docker 定制
 CONFIG_TARGET_DEVICE_qualcommbe_ipq95xx_DEVICE_xiaomi_be10000=y
+
+# ===== Docker / Dockerman =====
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_dockerd=y
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_containerd=y
+CONFIG_PACKAGE_runc=y
+CONFIG_PACKAGE_luci-lib-docker=y
+CONFIG_PACKAGE_kmod-ipt-nat=y
+CONFIG_PACKAGE_kmod-ipt-physdev=y
+CONFIG_PACKAGE_kmod-nf-ipvs=y
+CONFIG_PACKAGE_kmod-br-netfilter=y
+CONFIG_PACKAGE_kmod-fs-ext4=y
+CONFIG_PACKAGE_kmod-fs-ntfs3=y
+
+# ===== 工具 =====
+CONFIG_PACKAGE_ttyd=y
+CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_luci-app-nlbwmon=y
+CONFIG_PACKAGE_luci-app-ddns=y
+CONFIG_PACKAGE_luci-app-aria2=y
+CONFIG_PACKAGE_aria2=y
+CONFIG_PACKAGE_luci-app-hd-idle=y
+CONFIG_PACKAGE_nano=y
+
+# ===== 中文 =====
+CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
